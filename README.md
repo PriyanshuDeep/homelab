@@ -31,12 +31,16 @@ homelab/
 
 ## Progress
 
-- [x] Fedora KDE installed with NVIDIA drivers
+- [x] Fedora KDE installed on laptop
+- [x] NVIDIA drivers configured
 - [x] GitHub SSH authentication configured
-- [ ] Debian 12 server setup
-- [ ] Storage and mount configuration
+- [x] Homelab repo created
+- [x] Debian 13 server installed — minimal, no GUI
+- [x] SSH hardened — key-based auth only
+- [x] UFW firewall configured
+- [x] 2TB HDD mounted permanently via fstab
 - [ ] Jellyfin media server
 - [ ] Samba file sharing
 - [ ] WireGuard VPN
 - [ ] Automated rsync backups
-- [ ] UFW firewall + fail2ban
+- [ ] fail2ban
