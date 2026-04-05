@@ -118,7 +118,33 @@ prevents boot entirely.
 Mounted on laptop at /mnt/2TB_HDD via fstab (cifs).
 Visible in Dolphin sidebar under Network.
 
-- [ ] Jellyfin media server
+### Jellyfin Media Server (Docker)
+- Container: jellyfin/jellyfin:latest
+- Port: 8096
+- Config: ~/docker/jellyfin/config
+- Cache: ~/docker/jellyfin/cache
+- Media: /srv/data/media (mounted read-only)
+- Access: http://192.168.1.116:8096
+- Compose file: ~/docker/jellyfin/docker-compose.yml
+
+#### Post-Setup Configuration
+- OpenSubtitles plugin installed and configured
+- Transcoding: software only, 2 threads (Core 2 Duo)
+- Subtitle mode: Smart
+- Hardware acceleration: None (Core 2 Duo not supported)
+- Library scan: triggered manually when new media added
+- Subtitle download: runs on server startup automatically
+
+#### Media Structure
+/srv/data/media/
+├── movies/
+└── tvshows/
+
+#### Usage Notes
+Server is not running 24/7 — powered on via smart plug when needed.
+Scheduled tasks configured for on-startup triggers instead of
+fixed times due to this usage pattern.
+
 - [ ] WireGuard VPN
 - [ ] Automated rsync backups
 - [ ] fail2ban intrusion prevention

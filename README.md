@@ -54,7 +54,7 @@ homelab/
 - [x] Separate SSH keys — GitHub and server
 - [x] SSH config — `ssh inspiron` shorthand
 - [x] Samba file sharing
-- [ ] Jellyfin media server
+- [x] Jellyfin media server (Docker)
 - [ ] Duck DNS dynamic DNS
 - [ ] WireGuard VPN
 - [ ] Automated rsync backups
