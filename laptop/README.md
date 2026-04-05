@@ -51,3 +51,14 @@ sudo dnf install akmod-nvidia xorg-x11-drv-nvidia-cuda -y
   separately in the cuda package
 - DNF5 replaced DNF4 in Fedora 43 — timer unit names changed,
   always verify with `systemctl list-unit-files` instead of guessing
+
+## Storage
+
+### 1TB HDD
+- Device: /dev/sda
+- Label: 1TB_HDD
+- Filesystem: ext4
+- Mount point: /mnt/data
+- UUID: 367b71e8-613e-41c5-8314-9a9db1111c30
+- Mounted via /etc/fstab with nofail flag
+- Currently empty — reserved for future use
