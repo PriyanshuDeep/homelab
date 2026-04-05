@@ -53,7 +53,7 @@ homelab/
 - [x] GitHub SSH authentication configured
 - [x] Separate SSH keys — GitHub and server
 - [x] SSH config — `ssh inspiron` shorthand
-- [ ] Samba file sharing
+- [x] Samba file sharing
 - [ ] Jellyfin media server
 - [ ] Duck DNS dynamic DNS
 - [ ] WireGuard VPN

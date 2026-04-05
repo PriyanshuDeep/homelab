@@ -108,7 +108,16 @@ prevents boot entirely.
   are separate so compromising one doesn't affect the other
 
 ## Services
-- [ ] Samba file sharing
+
+### Samba File Sharing
+- Share name: data
+- Path: /srv/data
+- Valid users: priyanshudeep
+- UFW: Samba allowed
+
+Mounted on laptop at /mnt/2TB_HDD via fstab (cifs).
+Visible in Dolphin sidebar under Network.
+
 - [ ] Jellyfin media server
 - [ ] WireGuard VPN
 - [ ] Automated rsync backups
