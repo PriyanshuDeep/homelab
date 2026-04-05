@@ -4,19 +4,23 @@
 Dell Inspiron 560s
 - CPU: Intel Core 2 Duo
 - RAM: 4GB
-- OS Drive: 320GB WD HDD (sda)
-- Data Drive: 1.8TB Toshiba HDD (sdb) — labeled 2TB_HDD
+- OS Drive: 320GB WD HDD
+- Data Drive: 1.8TB Toshiba HDD
 - Hostname: inspiron
 
 ## OS
 Debian 13 (Trixie) — minimal install, no GUI
 
+## Network
+- Hostname: inspiron
+- Local IP: 192.168.1.116 (static, assigned via router DHCP reservation)
+
 ## Installation Notes
 
 ### Why Minimal Install
-No desktop environment installed. Every package
-on this server is there deliberately. Less software
-= smaller attack surface = more secure server.
+No desktop environment installed. Every package on this server
+is there deliberately. Less software = smaller attack surface
+= more secure server.
 
 ### Partition Layout (320GB OS drive)
 | Partition | Size | Mount | Purpose |
@@ -27,8 +31,8 @@ on this server is there deliberately. Less software
 | sda7 | 2.8GB | /tmp | Temporary files |
 | sda8 | 261.5GB | /home | User files |
 
-Separated /var deliberately — runaway logs
-cannot fill the root partition and crash the server.
+Separated /var deliberately — runaway logs cannot fill the
+root partition and crash the server.
 
 ## Post-Install Configuration
 
@@ -65,7 +69,7 @@ Only port 22 (SSH) is open. Every other port is denied by default.
 - Root login disabled
 - Key-based authentication only
 - Dedicated SSH key created for server (separate from GitHub key)
-- SSH config on laptop allows `ssh inspiron` shorthand
+- SSH config on laptop enables `ssh inspiron` shorthand
 
 Config changes in /etc/ssh/sshd_config:
 PasswordAuthentication no
@@ -73,7 +77,7 @@ PermitRootLogin no
 
 ## Storage
 
-### 2TB HDD (Toshiba DT01ABA2)
+### 2TB HDD
 - Device: /dev/sdb
 - Label: 2TB_HDD
 - Filesystem: ext4
@@ -85,21 +89,27 @@ PermitRootLogin no
 UUID=2b7df7ab-7b59-4b21-a547-9b18d978fbbf  /srv/data  ext4  defaults,nofail  0  2
 
 ### nofail Flag
-Critical for servers — if the data drive fails or
-is disconnected, the server still boots normally.
-Without this, a missing drive prevents boot entirely.
+Critical for servers — if the data drive fails or is disconnected,
+the server still boots normally. Without this, a missing drive
+prevents boot entirely.
 
-### Data Structure
-/srv/data/
-├── archived-do-not-open.tar  (881GB archive)
-├── backups/
-├── lost+found/
-├── media-library/
-└── photo-library/
+## What I Learned
+- Debian minimal doesn't configure sudo automatically — this is
+  intentional, forcing conscious decisions about privilege escalation
+- UFW must allow SSH before being enabled — enabling first would
+  lock you out of your own server instantly
+- Always test fstab with `sudo mount -a` before rebooting —
+  a broken fstab entry can prevent the system from booting
+- Use UUIDs in fstab, not device names — device names like /dev/sdb
+  can change between boots, UUIDs never do
+- Separate /var partition on servers prevents runaway logs from
+  filling root and crashing the system
+- SSH keys should be per-purpose — GitHub key and server key
+  are separate so compromising one doesn't affect the other
 
-## What's Next
-- [ ] Jellyfin media server
+## Services
 - [ ] Samba file sharing
+- [ ] Jellyfin media server
 - [ ] WireGuard VPN
-- [ ] Automated rsync backups from laptop
+- [ ] Automated rsync backups
 - [ ] fail2ban intrusion prevention
