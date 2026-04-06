@@ -55,7 +55,7 @@ homelab/
 - [x] SSH config — `ssh inspiron` shorthand
 - [x] Samba file sharing
 - [x] Jellyfin media server (Docker)
-- [ ] Duck DNS dynamic DNS
+- [x] Duck DNS dynamic DNS
 - [ ] WireGuard VPN
 - [ ] Automated rsync backups
 - [ ] fail2ban intrusion prevention

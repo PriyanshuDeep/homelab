@@ -145,6 +145,14 @@ Server is not running 24/7 — powered on via smart plug when needed.
 Scheduled tasks configured for on-startup triggers instead of
 fixed times due to this usage pattern.
 
+### Duck DNS Dynamic DNS
+- Domain: goku-home.duckdns.org (see Bitwarden for full details)
+- Update script: ~/scripts/duckdns.sh
+- Schedule: every 5 minutes via cron
+- Log file: ~/duckdns.log
+
+Keeps domain pointing to current public IP automatically.
+Essential for remote access when ISP changes public IP.
 - [ ] WireGuard VPN
 - [ ] Automated rsync backups
 - [ ] fail2ban intrusion prevention
