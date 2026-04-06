@@ -156,3 +156,16 @@ Essential for remote access when ISP changes public IP.
 - [ ] WireGuard VPN
 - [ ] Automated rsync backups
 - [ ] fail2ban intrusion prevention
+
+## WireGuard — Not Implemented
+
+WireGuard VPN was configured correctly on both server and laptop
+but failed due to Jio Fiber using CGNAT (Carrier Grade NAT).
+
+CGNAT means no real public IP is assigned to the router —
+inbound connections never reach the server regardless of port
+forwarding configuration.
+
+Solution: Switching to Oracle Cloud free VPS as a WireGuard
+relay — VPS has a real public IP, home server connects outbound
+to it bypassing CGNAT entirely.

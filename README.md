@@ -56,6 +56,8 @@ homelab/
 - [x] Samba file sharing
 - [x] Jellyfin media server (Docker)
 - [x] Duck DNS dynamic DNS
-- [ ] WireGuard VPN
+- [x] WireGuard attempted — blocked by Jio CGNAT
+- [x] Discovered CGNAT — switching to VPS relay solution
+- [ ] Oracle Cloud VPS + WireGuard relay
 - [ ] Automated rsync backups
 - [ ] fail2ban intrusion prevention
